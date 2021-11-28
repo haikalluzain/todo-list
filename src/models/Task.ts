@@ -1,5 +1,5 @@
-import { Document, model, Schema } from 'mongoose'
-import { ITask, TaskRepeat } from 'src/interfaces/ITask'
+import { Document, Model, model, Schema } from 'mongoose'
+import { ITask, TaskRepeat } from '@interfaces'
 import { v4 } from 'uuid'
 
 const TaskSchema = new Schema(
@@ -47,10 +47,12 @@ const TaskSchema = new Schema(
   { timestamps: {} }
 )
 
-interface TaskDocument extends ITask, Document {
+interface ITaskDocument extends ITask, Document {
   _id: string
 }
 
-const TaskModel = model<TaskDocument>('Task', TaskSchema)
+interface ITaskModel extends Model<ITaskDocument> {}
+
+const TaskModel = model<ITaskDocument, ITask & ITaskModel>('Task', TaskSchema)
 
 export default TaskModel
