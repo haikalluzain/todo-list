@@ -17,6 +17,11 @@ export default {
   app: appConfig,
 
   /**
+   * NODE env stage
+   */
+  env: process.env.NODE_ENV,
+  
+  /**
    * App port
    */
    port: parseInt(process.env.PORT, 10),
