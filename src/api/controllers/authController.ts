@@ -24,9 +24,7 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
 
     const { name, email, password } = req.body
 
-    const foundDuplicates = await UserModel.findOne({ email })
-
-    if (foundDuplicates) {
+    if (await UserModel.isEmailTaken(email)) {
       return responseUnprocessable(res, 'This email is already registered')
     }
 
@@ -66,7 +64,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
       return responseNotFound(res, 'The email is not in our record')
     }
 
-    if (await compareHash(password, user.password)) {
+    if (await user.isPasswordMatch(password)) {
       // Create jwt
       const token = generateToken({ _id: user._id, name: user.name })
 
