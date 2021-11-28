@@ -6,7 +6,7 @@ import config from '@config';
 import routes from '@api/routes';
 import { getReasonPhrase, StatusCodes } from 'http-status-codes'
 
-export default ({ app }: { app: express.Application }) => {
+export default (app: express.Application) => {
   /**
    * Useful if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
    * It shows the real origin IP in the heroku or Cloudwatch logs
