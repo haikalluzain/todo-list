@@ -47,7 +47,7 @@ const authMiddleware = async (
 
     const decode: any = jwt.verify(token.toString(), config.jwtSecret)
     const user = await UserModel.findById(decode._id)
-    req.user = user.toObject()
+    req.user = user
     
     return next()
   } catch (err) {
