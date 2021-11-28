@@ -1,0 +1,16 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "testEnvironmentOptions": {
+    "NODE_ENV": "test"
+  },
+  "restoreMocks": true,
+  "moduleNameMapper": {
+    "^@config": "<rootDir>/src/config",
+    "^@lib/(.*)$": "<rootDir>/src/lib/$1",
+    "^@api/(.*)$": "<rootDir>/src/api/$1",
+    "^@interfaces/(.*)": "<rootDir>/src/interfaces",
+    "^@models/(.*)$": "<rootDir>/src/models/$1",
+    "^@utils/(.*)": "<rootDir>/src/utils"
+  }
+}
