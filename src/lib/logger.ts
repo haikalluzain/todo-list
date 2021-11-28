@@ -2,9 +2,11 @@ import winston from 'winston'
 import config from '@config'
 
 const transports: Array<any> = []
-if (process.env.NODE_ENV !== config.app.stage.development) {
+if (config.env === config.app.stage.test) {
   transports.push(
-    new winston.transports.Console()
+    new winston.transports.Console({
+      silent: true
+    })
   )
 } else {
   transports.push(
