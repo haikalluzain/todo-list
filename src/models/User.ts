@@ -1,5 +1,5 @@
 import { Document, Model, model, Schema } from 'mongoose'
-import { IUser } from '@interfaces'
+import { IUser } from '@interfaces/IUser'
 import { v4 } from 'uuid'
 import { compareHash } from '@utils/password'
 
