@@ -1,3 +1,3 @@
 export * from './response'
 export * from './password'
-export * from './validationError'
+export * from './validation'
