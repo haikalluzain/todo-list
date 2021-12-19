@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import authRoute from './auth'
+import taskRoute from './task'
 import userRoute from './user'
 
 const router = Router()
@@ -17,6 +18,10 @@ const routes: routeInterface[] = [
   {
     path: '/users',
     route: userRoute
+  },
+  {
+    path: '/task',
+    route: taskRoute
   }
 ]
 
