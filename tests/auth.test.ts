@@ -24,6 +24,12 @@ afterAll(async () => {
   await dbConnection.close()
 })
 
+/**
+ * Test the register endpoint
+ * @group RegisterFunction
+ * @author Haikal Fikri Luzain <haikalfikriluzain@gmail.com>
+ * @contributor
+ */
 describe("Register The User", () => {
   test("Should register the user successfully", async () => {
     const payload = {
@@ -48,7 +54,7 @@ describe("Register The User", () => {
     })
   })
 
-  test("Should get unprocessable entity because payload is empty", async () => {
+  test("Cannot register the user because unprocessable entity", async () => {
     const payload = {}
 
     const res = await request(app)
@@ -73,7 +79,7 @@ describe("Register The User", () => {
     })
   })
 
-  test("Should get unprocessable entity because the email is already registered", async () => {
+  test("Cannot register the user because the email is already registered", async () => {
 
     const user = await createUser()
 
@@ -97,8 +103,15 @@ describe("Register The User", () => {
   })
 })
 
+/**
+ * Test the login endpoint
+ * @group LoginFunction
+ * @author Haikal Fikri Luzain <haikalfikriluzain@gmail.com>
+ * @contributor
+ */
 describe("Login The User", () => {
-  test("Should login the user successfully", async () => {
+
+  test("Should log in the user successfully", async () => {
     let password = '12345678'
     const user = {
       name: "Haikal",
@@ -123,4 +136,60 @@ describe("Login The User", () => {
     })
     expect(res.body).toHaveProperty("token");
   });
+
+  test("Cannot log in because the email is not found", async () => {
+    let password = '12345678'
+    const user = {
+      name: "Haikal",
+      email: "haikal@gmail.com",
+      password
+    };
+    await createUser(user)
+
+    const payload = {
+      email: "johndoe@gmail.com",
+      password
+    }
+
+    const res = await request(app)
+      .post("/api/auth/login")
+      .send(payload)
+      .expect(StatusCodes.NOT_FOUND);
+
+    expect(res.body).toMatchObject({
+      error: {
+        statusCode: StatusCodes.NOT_FOUND,
+        message: "The email is not in our record",
+      }
+    })
+    expect(res.body).not.toHaveProperty("token");
+  })
+
+  test("Cannot login because the password is invalid", async () => {
+    let password = '12345678'
+    const user = {
+      name: "Haikal",
+      email: "haikal@gmail.com",
+      password
+    };
+    await createUser(user)
+
+    const payload = {
+      email: user.email,
+      password: "4567891011"
+    }
+
+    const res = await request(app)
+      .post("/api/auth/login")
+      .send(payload)
+      .expect(StatusCodes.UNPROCESSABLE_ENTITY);
+
+    expect(res.body).toMatchObject({
+      error: {
+        statusCode: StatusCodes.UNPROCESSABLE_ENTITY,
+        message: "Invalid password",
+      }
+    })
+    expect(res.body).not.toHaveProperty("token");
+  })
 })
