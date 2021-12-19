@@ -1,23 +1,25 @@
 import { generateToken } from "@lib/token"
 import UserModel from "@models/User"
-import { compareHash, generateHash } from "@utils/password"
+import { generateHash } from "@utils/password"
 import { responseNotFound, responseUnprocessable, successResponse } from "@utils/response"
-import { validationError } from "@utils/validationError"
+import { validate, validationError } from "@utils/validation"
 import { NextFunction, Request, Response } from "express"
 import { StatusCodes } from "http-status-codes"
 import * as Yup from 'yup'
 
+/**
+ * Register function
+ * @return {IUser} data
+ */
 const register = async (req: Request, res: Response, next: NextFunction) => {
   try {
     // Validation
     try {
-      await Yup.object()
-        .shape({
-          name: Yup.string().required().min(3),
-          email: Yup.string().email().required(),
-          password: Yup.string().required().min(8)
-        })
-        .validate(req.body, { abortEarly: false })
+      await validate(req, {
+        name: Yup.string().required().min(3),
+        email: Yup.string().email().required(),
+        password: Yup.string().required().min(8)
+      })
     } catch (e) {
       return validationError(e, res)
     }
@@ -42,16 +44,18 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
   }
 }
 
+/**
+ * Login function
+ * @return {string} token
+ */
 const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
     // Validation
     try {
-      await Yup.object()
-        .shape({
-          email: Yup.string().email().required(),
-          password: Yup.string().required().min(8)
-        })
-        .validate(req.body, { abortEarly: false })
+      await validate(req, {
+        email: Yup.string().email().required(),
+        password: Yup.string().required().min(8)
+      })
     } catch (e) {
       return validationError(e, res)
     }
