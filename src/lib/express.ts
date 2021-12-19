@@ -1,6 +1,6 @@
 import { errorResponse, responseNotFound } from '@utils/response';
 import Logger from './logger';
-import express, { Request, Response } from 'express'
+import express, { NextFunction, Request, Response } from 'express'
 import cors from 'cors'
 import config from '@config';
 import routes from '@api/routes';
@@ -32,10 +32,10 @@ export default (app: express.Application) => {
   });
 
   /**
-   * All the error response (that not expected) will generated from here
-   * Also we logs all the message to the error.log file
+   * All the error response (that not expected) will be generated from here
+   * Also we log all the message to the error.log file
    */
-  app.use((err: { status: number, message: string, stack: any }, req: Request, res: Response) => {
+  app.use((err: { status: number, message: string, stack: any }, req: Request, res: Response, next: NextFunction) => {
     Logger.error(err.stack)
     const status = err.status || StatusCodes.INTERNAL_SERVER_ERROR
     let message = getReasonPhrase(status)
