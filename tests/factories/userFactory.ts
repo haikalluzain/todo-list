@@ -1,5 +1,5 @@
-import { generateToken } from './../../src/lib/token';
-import { generateHash } from '../../src/utils/password';
+import { generateToken } from '../../src/lib/token';
+import { generateHash } from '../../src/utils';
 import { IUser } from '../../src/interfaces';
 import UserModel from '../../src/models/User';
 import faker from 'faker'
