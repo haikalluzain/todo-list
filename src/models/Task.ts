@@ -1,5 +1,5 @@
 import { Document, Model, model, Schema } from 'mongoose'
-import { ITask, TaskRepeat } from '@interfaces'
+import { ITask, TaskRepeat } from '@interfaces/ITask'
 import { v4 } from 'uuid'
 
 const TaskSchema = new Schema(
@@ -40,7 +40,7 @@ const TaskSchema = new Schema(
       required: false
     },
     user: {
-      type: Schema.Types.ObjectId,
+      type: String,
       ref: "User"
     }
   },
