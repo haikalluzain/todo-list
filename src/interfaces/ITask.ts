@@ -1,22 +1,24 @@
-import { IUser } from "@interfaces";
+import { IUser } from "@interfaces/IUser";
 
 export enum TaskRepeat {
-  Daily = 'DAILY',
-  WeekDays = 'WEEKDAYS',
-  Weekly = 'WEEKLY',
-  Monthly = 'MONTHLY',
-  Yearly = 'YEARLY'
+  DAILY = 'DAILY',
+  WEEKDAYS = 'WEEKDAYS',
+  WEEKLY = 'WEEKLY',
+  MONTHLY = 'MONTHLY',
+  YEARLY = 'YEARLY'
 }
+
+export type TaskRepeatString = keyof typeof TaskRepeat
 
 export interface ITask {
   _id?: string
   title: string
   notes: string
   pinned: boolean
-  user: IUser
+  user?: IUser
   dueAt?: Date
   remindAt?: Date
-  repeat: boolean
+  repeat: TaskRepeatString
   pinnedAt: Date
   createdAt?: Date
   updatedAt?: Date
