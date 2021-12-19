@@ -1,6 +1,6 @@
 import UserModel from '@models/User';
 import { NextFunction, Request, Response } from "express"
-import { IUser } from "@interfaces";
+import { IUser } from "@interfaces/IUser";
 import jwt from 'jsonwebtoken'
 import config from "@config";
 import Logger from '@lib/logger'
