@@ -2,13 +2,13 @@ import { Response } from 'express'
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 
 /**
- * Success Response
+ * Success response
  * @param res 
  * @param message 
  * @param data 
- * @param statusCode 
+ * @param statusCode
  */
-export const successResponse = (res: Response, message: string, data: any, statusCode: number = StatusCodes.OK) => {
+export const successResponse = (res: Response, message: string, data: any = null, statusCode: number = StatusCodes.OK) => {
   res.status(statusCode).json({
     statusCode,
     message,
@@ -17,13 +17,18 @@ export const successResponse = (res: Response, message: string, data: any, statu
 }
 
 /**
- * Error responses
+ * Error response
+ * @param res
+ * @param statusCode
+ * @param message
  */
-export const responseInternalServerError = (
-  res: Response,
-  message: string = ReasonPhrases.INTERNAL_SERVER_ERROR
-) => {
-  return errorResponse(res, StatusCodes.INTERNAL_SERVER_ERROR, message)
+export const errorResponse = (res: Response, statusCode: number, message: string) => {
+  res.status(statusCode).json({
+    error: {
+      statusCode,
+      message
+    }
+  })
 }
 
 export const responseNotFound = (
@@ -49,13 +54,4 @@ export const responseBadRequest = (
   message: string = ReasonPhrases.BAD_REQUEST
 ) => {
   return errorResponse(res, StatusCodes.BAD_REQUEST, message)
-}
-
-export const errorResponse = (res: Response, statusCode: number, message: string) => {
-  res.status(statusCode).json({
-    error: {
-      statusCode,
-      message
-    }
-  })
 }
