@@ -4,6 +4,10 @@
   "testEnvironmentOptions": {
     "NODE_ENV": "test"
   },
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/src"
+  ],
   "restoreMocks": true,
   "moduleNameMapper": {
     "^@config": "<rootDir>/src/config",
