@@ -4,6 +4,7 @@
   "description": "This is a simple example of todo list application",
   "main": "src/app.ts",
   "scripts": {
+    "start": "ts-node -r tsconfig-paths/register src/app.ts",
     "dev": "nodemon",
     "build": "tsc",
     "test": "jest -i --colors --verbose --detectOpenHandles --runInBand"
