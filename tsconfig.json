@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "esnext",
     "lib": [
       "es2017",
       "esnext.asynciterable"
@@ -21,7 +21,7 @@
     "allowJs": true,
     "noEmit": false,
     "esModuleInterop": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@config": ["./src/config"],
       "@lib/*": ["./src/lib/*"],
