@@ -1,13 +1,13 @@
 # TODO List (Boilerplate)
  This is a simple boilerplate for Node js. Stacks: Node js, express js, Typescript, MongoDB, etc.
 
-# Requirement (Local environment)
+### Requirement (Local environment)
 1. Node js version 12 or higher
 2. Git Bash
 3. Text Editor (Recommended: WebStorm)
 4. MongoDB Compass
 
-# Getting Started
+### Getting Started
 
 ### **Set up env**
 ```bash
@@ -33,7 +33,7 @@ yarn dev
 yarn test
 ```
 
-## Project Structure
+### Project Structure
 
 ```
 src\
@@ -46,7 +46,7 @@ src\
  |--app.ts          # Express app
 ```
 
-## API Endpoints
+### API Endpoints
 
 List of available routes:
 
@@ -63,13 +63,13 @@ List of available routes:
 - `PUT /api/task/:taskId` - update a task\
 - `DELETE /api/task/:taskId` - delete task
 
-## API Documentation
+### API Documentation
 @ TODO
 
-## Contributing
+### Contributing
 
 Contributions are more than welcome! Please check out the [contributing guide](CONTRIBUTING.md).
 
-## License
+### License
 
 [MIT](LICENSE)
