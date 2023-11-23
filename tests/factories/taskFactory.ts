@@ -1,7 +1,7 @@
 import faker from 'faker';
 import moment from "moment"
-import { ITask, TaskRepeat } from "../../src/interfaces"
-import TaskModel from '../../src/models/Task'
+import { ITask, TaskRepeat } from "../../interfaces"
+import TaskModel from '../../models/Task'
 
 export const createTasks = async (num = 1) => {
   let tasks: ITask[] = []

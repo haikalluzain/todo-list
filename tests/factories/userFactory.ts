@@ -1,7 +1,7 @@
-import { generateToken } from '../../src/lib/token';
-import { generateHash } from '../../src/utils';
-import { IUser } from '../../src/interfaces';
-import UserModel from '../../src/models/User';
+import { generateToken } from '../../lib/token';
+import { generateHash } from '../../utils';
+import { IUser } from '../../interfaces';
+import UserModel from '../../models/User';
 import faker from 'faker'
 
 

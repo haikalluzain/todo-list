@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import taskController from '@api/controllers/taskController'
-import authMiddleware from '@api/middlewares/authMiddleware'
+import taskController from '../../api/controllers/taskController'
+import authMiddleware from '../../api/middlewares/authMiddleware'
 
 const taskRoute = Router()
 

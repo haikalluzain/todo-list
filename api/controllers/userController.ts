@@ -1,5 +1,5 @@
-import { RequestWithAuth } from "@api/middlewares/authMiddleware";
-import { successResponse } from "@utils/response";
+import { RequestWithAuth } from "../../api/middlewares/authMiddleware";
+import { successResponse } from "../../utils/response";
 import { NextFunction, Request, Response } from "express";
 
 

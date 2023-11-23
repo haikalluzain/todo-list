@@ -1,10 +1,10 @@
-import { RequestWithAuth } from '@api/middlewares/authMiddleware';
-import {ITask, TaskRepeat} from "@interfaces/ITask";
-import { validate, validationError } from "@utils/validation";
+import { RequestWithAuth } from '../../api/middlewares/authMiddleware';
+import {ITask, TaskRepeat} from "../../interfaces/ITask";
+import { validate, validationError } from "../../utils/validation";
 import { NextFunction, Response } from "express";
-import TaskModel from "@models/Task"
+import TaskModel from "../../models/Task"
 import * as Yup from 'yup'
-import {responseNotFound, successResponse} from '@utils/response';
+import {responseNotFound, successResponse} from '../../utils/response';
 
 
 const validateTask = async (req: RequestWithAuth, res: Response) => {

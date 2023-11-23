@@ -1,8 +1,8 @@
-import { generateToken } from "@lib/token"
-import UserModel from "@models/User"
-import { generateHash } from "@utils/password"
-import { responseNotFound, responseUnprocessable, successResponse } from "@utils/response"
-import { validate, validationError } from "@utils/validation"
+import { generateToken } from "../../lib/token"
+import UserModel from "../../models/User"
+import { generateHash } from "../../utils/password"
+import { responseNotFound, responseUnprocessable, successResponse } from "../../utils/response"
+import { validate, validationError } from "../../utils/validation"
 import { NextFunction, Request, Response } from "express"
 import { StatusCodes } from "http-status-codes"
 import * as Yup from 'yup'

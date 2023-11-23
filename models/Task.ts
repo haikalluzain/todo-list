@@ -1,5 +1,5 @@
 import { Document, Model, model, Schema } from 'mongoose'
-import { ITask, TaskRepeat } from '@interfaces/ITask'
+import { ITask, TaskRepeat } from '../interfaces/ITask'
 import { v4 } from 'uuid'
 
 const TaskSchema = new Schema(

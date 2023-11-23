@@ -1,5 +1,5 @@
 import winston from 'winston'
-import config from '@config'
+import config from '../config'
 
 const transports: Array<any> = []
 if (config.env === config.app.stage.test) {
@@ -23,15 +23,17 @@ const myFormatter = winston.format.printf(({ level, message, timestamp }) => {
   return `[${timestamp}] ${level.toUpperCase()}: ${message}`;
 });
 
-transports.push(
-  new winston.transports.File({
-    filename: "logs/server.log"
-  }),
-  new winston.transports.File({
-    filename: "logs/error.log",
-    level: "error"
-  })
-)
+if (config.env !== config.app.stage.production) {
+  transports.push(
+    new winston.transports.File({
+      filename: "logs/server.log"
+    }),
+    new winston.transports.File({
+      filename: "logs/error.log",
+      level: "error"
+    })
+  )
+}
 
 const LoggerInstance = winston.createLogger({
   level: config.logs.level,

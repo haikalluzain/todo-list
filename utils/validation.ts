@@ -26,17 +26,11 @@ export const validationError = (error: any, res: Response) => {
     errors[item.path] = item.message
   })
 
-  return res.status(422).json({
+  return res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
     error: {
       statusCode: StatusCodes.UNPROCESSABLE_ENTITY,
       message: ReasonPhrases.UNPROCESSABLE_ENTITY,
       errors,
     },
   })
-
-  // if (Object.keys(errors).length > 0) {
-  //   return false
-  // }
-
-  // return true
 }

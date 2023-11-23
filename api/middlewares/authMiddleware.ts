@@ -1,10 +1,10 @@
-import UserModel from '@models/User';
+import UserModel from '../../models/User';
 import { NextFunction, Request, Response } from "express"
-import { IUser } from "@interfaces/IUser";
+import { IUser } from "../../interfaces/IUser";
 import jwt from 'jsonwebtoken'
-import config from "@config";
-import Logger from '@lib/logger'
-import { responseBadRequest, responseUnauthorized } from "@utils/response";
+import config from "../../config";
+import Logger from '../../lib/logger'
+import { responseBadRequest, responseUnauthorized } from "../../utils/response";
 
 export interface RequestWithAuth extends Request {
   user: IUser

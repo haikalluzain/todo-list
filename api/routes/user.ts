@@ -1,5 +1,5 @@
-import userController from '@api/controllers/userController'
-import authMiddleware from '@api/middlewares/authMiddleware'
+import userController from '../../api/controllers/userController'
+import authMiddleware from '../../api/middlewares/authMiddleware'
 import { Router } from 'express'
 
 const router = Router()

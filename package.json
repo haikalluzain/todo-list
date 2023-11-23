@@ -2,7 +2,7 @@
   "name": "todo-list",
   "version": "1.0.0",
   "description": "This is a simple example of todo list application",
-  "main": "src/app.ts",
+  "main": "app.ts",
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register src/app.ts",
     "dev": "nodemon",

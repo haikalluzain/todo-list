@@ -1,12 +1,12 @@
 import request from "supertest"
 import dbConnection from "./handler/dbConnection"
 import { ReasonPhrases, StatusCodes } from "http-status-codes"
-import app from "../src/app"
+import app from "../app"
 import { createUser, getAuth } from "./factories/userFactory"
 import moment from "moment"
-import { ITask } from "../src/interfaces"
+import { ITask } from "../interfaces"
 import { createTasks } from "./factories/taskFactory"
-import TaskModel from "../src/models/Task";
+import TaskModel from "../models/Task";
 // import { createUser } from "./factories/userFactory"
 
 /**

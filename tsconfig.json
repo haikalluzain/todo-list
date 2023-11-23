@@ -7,7 +7,7 @@
     ],
     "typeRoots": [
       "./node_modules/@types",
-      "./src/types"
+      "./types"
     ],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
@@ -23,19 +23,16 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "@config": ["./src/config"],
-      "@lib/*": ["./src/lib/*"],
-      "@api/*": ["./src/api/*"],
-      "@interfaces/*": ["./src/interfaces/*"],
-      "@models/*": ["./src/models/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@config": ["./config"],
+      "@lib/*": ["./lib/*"],
+      "@api/*": ["./api/*"],
+      "@interfaces/*": ["./interfaces/*"],
+      "@models/*": ["./models/*"],
+      "@utils/*": ["./utils/*"]
     }
-    // "paths": {
-    //   "@/*": ["./src/*"]
-    // }
   },
   "include": [
-    "./src/**/*"
+    "./**/*"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "build"]
 }

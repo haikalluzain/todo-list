@@ -2,7 +2,7 @@ import request from "supertest"
 import dbConnection from "./handler/dbConnection"
 import faker from "faker"
 import { ReasonPhrases, StatusCodes } from "http-status-codes"
-import app from "../src/app"
+import app from "../app"
 import { createUser, getAuth } from "./factories/userFactory"
 
 /**

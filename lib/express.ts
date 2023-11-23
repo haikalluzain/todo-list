@@ -1,9 +1,9 @@
-import { errorResponse, responseNotFound } from '@utils/response';
+import { errorResponse, responseNotFound } from '../utils/response';
 import Logger from './logger';
 import express, { NextFunction, Request, Response } from 'express'
 import cors from 'cors'
-import config from '@config';
-import routes from '@api/routes';
+import config from '../config';
+import routes from '../api/routes';
 import { getReasonPhrase, StatusCodes } from 'http-status-codes'
 
 export default (app: express.Application) => {
